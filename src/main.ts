@@ -6,7 +6,7 @@ import GlobalStore from './globalStore';
 
 import { Schema, ProxySchema, State } from './types';
 import { LABELS, REQUESTS, prepareRequestList } from './consts';
-import { getProxiesFromTable, addProxiesToStore, testProxy, proxyLog, getProxiesFromSneakyTable } from './utils';
+import { getProxiesFromTable, addProxiesToStore, testProxy, proxyLog, getProxiesFromSneakyTable, isValidURL } from './utils';
 
 const { log } = Apify.utils;
 
@@ -33,7 +33,7 @@ Apify.main(async () => {
         namedDataset = await Apify.openDataset(datasetName);
     }
 
-    if (!new URL(testTarget)) throw new Error(`Please provide a valid URL! ${testTarget} is not valid.`);
+    if (!isValidURL(testTarget)) throw new Error(`Please provide a valid URL! ${testTarget} is not valid. Make sure to include "https://" or "http://"`);
 
     prepareRequestList();
     const requestList = await Apify.openRequestList('urls', REQUESTS);

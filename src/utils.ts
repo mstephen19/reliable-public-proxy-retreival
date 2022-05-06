@@ -102,3 +102,13 @@ export const testProxy = async (instance: AxiosInstance, target: string, proxyOb
         return false;
     }
 };
+
+export const isValidURL = (str: string): boolean => {
+    try {
+        const test = new URL(str);
+    } catch (err) {
+        return false;
+    }
+
+    return true;
+};
