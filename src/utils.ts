@@ -82,7 +82,7 @@ export const addProxiesToStore = (store: GlobalStore, proxiesToAdd: ProxySchema[
     });
 };
 
-export const testProxy = async (instance: AxiosInstance, target: string, proxyObj: ProxySchema, https?: boolean) => {
+export const testProxy = async (instance: AxiosInstance, target: string, proxyObj: ProxySchema, https?: boolean): Promise<boolean> => {
     try {
         const { host, port } = proxyObj as { host: string; port: number };
 
@@ -97,7 +97,7 @@ export const testProxy = async (instance: AxiosInstance, target: string, proxyOb
             proxy: proxyOptions,
         });
 
-        return status === 200 && data ? true : false;
+        return (status === 200 && data);
     } catch (error) {
         return false;
     }
@@ -105,7 +105,8 @@ export const testProxy = async (instance: AxiosInstance, target: string, proxyOb
 
 export const isValidURL = (str: string): boolean => {
     try {
-        const test = new URL(str);
+        // eslint-disable-next-line no-new
+        new URL(str);
     } catch (err) {
         return false;
     }
