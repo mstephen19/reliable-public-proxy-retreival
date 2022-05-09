@@ -16,7 +16,8 @@
             "title": "Test Target",
             "type": "string",
             "description": "Target website to run all of the tests on.",
-            "editor": "textfield"
+            "editor": "textfield",
+            "pattern": "^(http[s]?:\/\/)[a-z1-9]*\.([a-z]){2,4}(\/.*)?",
         },
         "testTimeout": {
             "title": "Test Timeout",

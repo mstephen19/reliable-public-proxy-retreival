@@ -1,6 +1,6 @@
 {
     "name": "proxy-scraper",
-    "version": "0.2.1",
+    "version": "0.2",
     "buildTag": "beta",
     "env": {
         "APIFY_MEMORY_MBYTES": "2048"
