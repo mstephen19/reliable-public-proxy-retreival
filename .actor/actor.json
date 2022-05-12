@@ -1,0 +1,31 @@
+{
+    "actorSpecification": 1,
+    "name": "proxy-scraper",
+    "title": "Proxy Scraper",
+    "description": "Gets a list of usable proxies from public sources.",
+    "version": "0.0.1",
+    "storages": {
+        "dataset": {
+            "actorSpecification": 1,
+            "title": "Proxy Scraper",
+            "description": "Too see all scraped properties, export the whole dataset or select All fields instead of Overview",
+            "views": {
+                "overview": {
+                    "title": "Overview",
+                    "description": "",
+                    "transformation": {
+                        "fields": ["host", "port", "full"]
+                    },
+                    "display": {
+                        "component": "table",
+                        "columns": [
+                            { "label": "Host", "format": "text", "field": "host" },
+                            { "label": "Port", "format": "text", "field": "port" },
+                            { "label": "Full", "format": "text", "field": "full" }
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}
